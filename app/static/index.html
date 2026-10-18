@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LensSEO — Website Intelligence</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-symbol">◈</div><div><strong>Lens<span>SEO</span></strong><small>WEBSITE INTELLIGENCE</small></div></div>
+      <div class="side-label">WORKSPACE</div>
+      <button class="side-nav selected" id="newAudit" type="button"><span>▦</span> Audit workspace</button>
+      <button class="side-nav" id="sampleSide" type="button"><span>◷</span> Sample report</button>
+      <button class="side-nav" id="guideSide" type="button"><span>◇</span> How it works</button>
+      <div class="sidebar-spacer"></div>
+      <div class="side-card">
+        <div class="side-card-label"><span class="live-dot"></span> BUILT FOR REAL AUDITS</div>
+        <p>7 technical & content checks. Clear fixes. Human-reviewed AI suggestions.</p>
+        <span class="side-small">Interview prototype · v1.2</span>
+      </div>
+      <div class="side-footer"><span class="avatar">LS</span><span>LensSEO<br><small>SEO / AEO / GEO</small></span></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar"><div class="breadcrumbs">WORKSPACE <span>/</span> <b>Site Audit</b></div><div class="topbar-right"><span class="small-pill"><span class="live-dot"></span> DEMO ENVIRONMENT</span><button type="button" class="help-link" id="helpButton">? &nbsp; Help</button></div></header>
+      <div class="content-width">
+        <section class="hero">
+          <div class="hero-glow"></div><div class="hero-copy"><div class="eyebrow"><span class="eyebrow-dot"></span> AI-ASSISTED AUDIT PLATFORM</div><h1>Better rankings start<br>with <em>better insights.</em></h1><p>Audit technical SEO, answer readiness and AI-search signals in one place. Find what matters. Fix what moves the needle.</p></div>
+          <div class="hero-orbit" aria-hidden="true"><div class="orb orb-a"></div><div class="orb orb-b"></div><div class="orb orb-c"></div><div class="orb-center">◈</div><div class="orb-tag tag-one">SEO <span>↗</span></div><div class="orb-tag tag-two">AEO <span>✦</span></div><div class="orb-tag tag-three">GEO <span>◎</span></div></div>
+        </section>
+
+        <div class="layout-grid">
+          <section class="card audit-card">
+            <div class="card-header"><div><span class="section-index">01 / START HERE</span><h2>Run a website audit</h2><p>Enter a public website to scan its pages and identify issues.</p></div><span class="spark-icon">↗</span></div>
+            <form id="auditForm">
+              <label for="siteUrl">Website URL</label>
+              <div class="url-wrap"><span class="url-icon">⌁</span><input id="siteUrl" name="url" type="url" placeholder="https://www.example.com" value="https://www.pw.live/neet" required autocomplete="url" /></div>
+              <div class="form-inline"><div><label for="maxPages">Pages to crawl</label><select id="maxPages"><option value="5">5 pages · quick</option><option value="12" selected>12 pages · standard</option><option value="25">25 pages · detailed</option><option value="35">35 pages · max</option></select></div><div class="mini-stat"><span class="mini-bubble">◎</span><span>Respects robots.txt<br><b>Public URLs only</b></span></div></div>
+              <label class="checkbox-line scope-choice"><input id="sectionOnly" type="checkbox" checked><span><b>Stay within the entered URL section</b><small>For /neet, only scan /neet pages. Uncheck to audit across the website.</small></span></label>
+              <button type="button" id="competitorToggle" class="disclosure"><span>＋ Compare competitor page headings</span><span id="toggleArrow">↓</span></button>
+              <div id="competitorPanel" hidden><label for="competitorUrls">Competitor page URLs (up to 3, one per line)</label><textarea id="competitorUrls" rows="3" placeholder="https://competitor.com/relevant-page"></textarea><div class="field-help">Used only for candidate topic-gap suggestions. Not a search ranking comparison.</div></div>
+              <label class="checkbox-line"><input id="useAI" type="checkbox"><span><b>Generate AI rewrite suggestions</b><small>Requires server-side OpenAI API key; sends limited public page excerpts.</small></span></label>
+              <button class="primary-button" id="runAudit" type="submit"><span id="runLabel">Run website audit</span><span class="button-arrow">↗</span></button>
+              <div class="form-note"><span>✧</span> No API key needed for the technical audit. <button type="button" id="demoButton">Try a sample report →</button></div>
+            </form>
+          </section>
+          <section class="card checks-card"><div class="card-header"><div><span class="section-index">02 / WHAT WE CHECK</span><h2>7-point audit framework</h2><p>Built for SEO, AEO and GEO readiness.</p></div></div>
+            <div class="checks-list">
+              <div><span class="check-num">01</span><span>Indexing & crawlability</span><span class="check-ico">↗</span></div>
+              <div><span class="check-num">02</span><span>On-page tags & headings</span><span class="check-ico">↗</span></div>
+              <div><span class="check-num">03</span><span>Internal linking</span><span class="check-ico">↗</span></div>
+              <div><span class="check-num">04</span><span>Schema & structured data</span><span class="check-ico">↗</span></div>
+              <div><span class="check-num">05</span><span>Content quality & freshness</span><span class="check-ico">↗</span></div>
+              <div><span class="check-num">06</span><span>AI answer readiness</span><span class="check-ico">↗</span></div>
+              <div><span class="check-num">07</span><span>Performance & alt signals</span><span class="check-ico">↗</span></div>
+            </div>
+          </section>
+        </div>
+
+        <div id="notice" class="notice" role="status" hidden></div>
+        <section id="results" class="results" hidden>
+          <div class="results-title"><div><span class="section-index">03 / AUDIT REPORT</span><h2>Analysis results <span id="demoBadge" class="demo-badge" hidden>DEMO DATA</span></h2><p id="auditedDomain">—</p></div><div class="result-buttons"><button id="downloadCSV" class="outline-button" type="button" title="Exports all findings with exactly five columns">↓ 5-column CSV</button><button id="downloadJSON" class="outline-button" type="button">↓ Full JSON</button></div></div>
+          <div class="score-grid">
+            <div class="score-card"><div class="score-top"><span>SEO READINESS</span><span class="score-mark">↗</span></div><strong id="seoScore">—</strong><div class="meter"><span id="seoBar"></span></div><small>Technical & content signals</small></div>
+            <div class="score-card"><div class="score-top"><span>AEO READINESS</span><span class="score-mark">✳</span></div><strong id="aeoScore">—</strong><div class="meter"><span id="aeoBar"></span></div><small>Answer-friendly content</small></div>
+            <div class="score-card"><div class="score-top"><span>GEO READINESS</span><span class="score-mark">◎</span></div><strong id="geoScore">—</strong><div class="meter"><span id="geoBar"></span></div><small>Trust & citation-friendly signals</small></div>
+            <div class="score-card overall"><div class="score-top"><span>SCAN OVERVIEW</span><span class="score-mark">◈</span></div><div class="overall-line"><strong id="pageCount">—</strong><span>pages scanned</span></div><div class="overall-line"><strong id="issueCount">—</strong><span>issues found</span></div><small id="issuesSummary">—</small></div>
+          </div>
+          <p id="scoreNote" class="score-note"></p>
+          <details id="warningsPanel" class="scan-warnings" hidden><summary>Audit scope and crawl notices (<span id="warningCount">0</span>)</summary><ul id="warningsList"></ul></details>
+          <div class="report-card">
+            <div class="tabs" role="tablist" aria-label="Audit report views"><button type="button" class="tab active" data-tab="issues">Issues <span id="issueTabCount">0</span></button><button type="button" class="tab" data-tab="pages">Crawled pages</button><button type="button" class="tab" data-tab="ai">AI suggestions</button></div>
+            <div id="issuePanel" class="report-panel"><div class="filterbar"><div class="filter-title"><h3>Prioritized action list</h3><p>Review each issue before applying a fix.</p></div><div class="filters"><input id="searchIssues" type="search" placeholder="Search findings…" aria-label="Search findings"/><select id="filterPriority" aria-label="Filter priority"><option value="all">All priorities</option><option value="High">High</option><option value="Medium">Medium</option><option value="Low">Low</option></select><select id="filterCategory" aria-label="Filter category"><option value="all">All types</option><option value="SEO">SEO</option><option value="AEO">AEO</option><option value="GEO">GEO</option></select></div></div><div class="table-scroller"><table><thead><tr><th>URL</th><th>ISSUE</th><th>SEO/AEO/GEO</th><th>PRIORITY</th><th>RECOMMENDED FIX</th></tr></thead><tbody id="issuesBody"></tbody></table></div><p class="row-count" id="visibleCount"></p></div>
+            <div id="pagePanel" class="report-panel" hidden><div class="filterbar"><div class="filter-title"><h3>Pages included in crawl</h3><p>Sampled server-rendered HTML, not a full-site crawl.</p></div></div><div class="table-scroller"><table><thead><tr><th>URL</th><th>STATUS</th><th>TITLE</th><th>WORDS</th><th>INLINKS*</th><th>RESPONSE</th></tr></thead><tbody id="pagesBody"></tbody></table></div><p class="row-count">*Inbound links detected within this limited crawl sample.</p></div>
+            <div id="aiPanel" class="report-panel" hidden><div class="ai-area" id="aiArea"></div></div>
+          </div>
+          <div class="audit-footnote"><span>ⓘ</span><div><strong>Important context</strong><p>Scores reflect simple on-page readiness rules, not search rankings or the probability of being cited by an AI assistant. A limited crawl cannot prove orphan pages; load time is not a Core Web Vitals metric. Confirm findings before implementation.</p></div></div>
+        </section>
+        <footer>LensSEO <span>·</span> Designed for actionable audits. Powered by evidence, improved by AI.</footer>
+      </div>
+    </main>
+  </div>
+  <dialog id="helpDialog"><form method="dialog"><div class="modal-head"><h2>How LensSEO works</h2><button class="x-button" value="cancel" aria-label="Close">×</button></div><ol><li>Enter a public website URL and select a crawl size.</li><li>LensSEO reads robots.txt and a bounded sample of HTML pages.</li><li>Seven checks identify indexing, content, linking and answer-readiness issues.</li><li>Optional competitor heading comparison highlights possible missing sections.</li><li>Optional OpenAI analysis drafts titles, metas and short answers for your review.</li><li>Download the exact five-column CSV action list or a full JSON report.</li></ol><p class="modal-note">The audit is a bounded HTML sample; AI scores are not measurements of real citation likelihood. For a section URL such as /neet, section-only scanning is on by default.</p><button class="primary-button" value="cancel">Got it</button></form></dialog>
+</body>
+</html>

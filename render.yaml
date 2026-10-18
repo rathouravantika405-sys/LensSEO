@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: lensseo-demo
+    runtime: python
+    plan: free
+    region: singapore
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.11
+      - key: LENSSEO_PUBLIC_MODE
+        value: 'true'
+      - key: LENSSEO_ALLOWED_DOMAINS
+        value: pw.live,pwgulf.com,pwskills.com,example.org
